@@ -3,25 +3,22 @@
 #include <vector>
 void readtxt(std::vector<int> &arr,std::vector<int> &arr2,char *name)
 {
-    FILE *f;
-    f = fopen (name,"r");
+    std::ifstream in(name);
     int temp=0;
-    while (feof(f)==0)
-    {
-        fscanf(f,"%d",&temp);
+    while (in)
+    {   in>>temp;
         arr.push_back(temp);
-        fgetc(f);
-        fscanf(f,"%d",&temp);
+        in>>temp;
         arr2.push_back(temp);
 
     }
-    fclose(f);
+    in.close();
 }
 void writegv(std::vector<int> &arr,std::vector<int> &arr2,char *name)
 {
     std::ofstream out(name);
     out << "graph s {\n";
-    int k=arr.size();
+    int k=arr.size()-1;
     for (int i=0;i<k;i++)
     {
         if((arr[i])!=0)
@@ -30,7 +27,6 @@ void writegv(std::vector<int> &arr,std::vector<int> &arr2,char *name)
     out<<"}";
     out.close ();
 }
-
 void printG(){
 
     std::vector<int> arr;
