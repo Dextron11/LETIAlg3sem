@@ -19,20 +19,4 @@ typedef struct Trailer {
     Tref Next;
 };
 
-//Описание типа узла очереди.
-typedef Tref TipElement; //Указатель на звено заголовочного списка.
-typedef struct Zveno *svqz;
-typedef struct Zveno {
-    TipElement Element; //Указатель на список смежности.
-    svqz Sled;
-};
-
-//Описание типа узла очереди указателей на
-//узлы списков смежности.
-typedef Lref TipElement1;
-typedef struct Zveno1 *svqz1;
-typedef struct Zveno1 {
-    TipElement1 Element; //Указатель на заголовочный узел.
-    svqz1 Sled;
-};
 #endif //ALGANDSTR_3SEM_KURS_Virt_H
