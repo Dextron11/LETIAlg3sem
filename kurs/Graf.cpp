@@ -68,8 +68,8 @@ void Graf::Ostov_Breadth()
 //обход), соединенный с построением стягивающего дерева.
 {
     std::ofstream fout("output.txt", std::ios_base::app);
-    std::queue<Tref> queueOne;
-    std::queue<Lref> queueTwo;
+    std::queue<Tref> queueTref;
+    std::queue<Lref> queueLref;
     Tref s;    //Рабочий указатель.
     Tref t;    //Рабочий указатель.
     Tref Tail1;//Указатель на фиктивный элемент в очереди L,R;
@@ -79,17 +79,17 @@ void Graf::Ostov_Breadth()
     Head->Flag = false;
     t = Head->Trail;
     while (t != nullptr) {
-        queueOne.push(t);
+        queueTref.push(t);
         t = t->Next;
     }
-    queueOne.push(Tail1);
+    queueTref.push(Tail1);
     v = Head;
-    while (queueOne.size() != 0)
+    while (queueTref.size() != 0)
         //Пока очередь не пуста...
     {
 
-        t = queueOne.front();
-        queueOne.pop();
+        t = queueTref.front();
+        queueTref.pop();
         if (t != Tail1) {
             if (t->Id->Flag) {
                 fout << v->Key << " " << t->Id->Key << "\n";
@@ -98,19 +98,19 @@ void Graf::Ostov_Breadth()
             }
             s = t->Id->Trail;
 
-            queueTwo.push(t->Id);
+            queueLref.push(t->Id);
             while (s != nullptr) {
                 if (s->Id->Flag) {
-                    queueOne.push(s);
+                    queueTref.push(s);
                     t->Id->Flag = false;
                 }
                 s = s->Next;
             }
 
-            queueOne.push(Tail1);
+            queueTref.push(Tail1);
         } else {
-            v = queueTwo.front();
-            queueTwo.pop();
+            v = queueLref.front();
+            queueLref.pop();
         }
     }
 }
