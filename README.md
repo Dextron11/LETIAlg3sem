@@ -1,15 +1,3 @@
-# LETIAlg3sem
-program for course of algorithms and data structures 3 semester.
-
-Лабараторная №1
-
-Получить практические навыки работы с логическими операциями над множествами. 
-
-Задание
-
-Создать множество  E содержащие все буквы из А не являющиеся общими для B, C и D;
-E=A&(~B)&(~C)&(~D)
-Универсум прописные латинские буквы (abcdefghijklmnopqrstuvwxyz).
-Выполнить 4 способами, сравнить скорость.
-
+#Tasks3semesterLETI
+Tasks for the course algorithms and data structures (LETI 3 semester)
 
